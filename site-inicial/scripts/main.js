@@ -8,8 +8,10 @@ minhaImagem.onclick = function() {
       minhaImagem.setAttribute ('src','imagens/d.png');
     }
 }
+
+
 let meuBotao = document.querySelector('button');
-let meuCabecalho = document.querySelector('h1');
+let meuCabecalho = document.querySelector('h2');
 function defineNomeUsuario() {
     let meuNome = prompt('Por favor, digite seu nome.');
     localStorage.setItem('nome', meuNome);
@@ -23,3 +25,12 @@ function defineNomeUsuario() {
   }
   meuBotao.onclick = function() { defineNomeUsuario();
   }
+  function defineNomeUsuario() {
+  let meuNome = prompt('Por favor, digite seu primeiro nome.');
+  if(!meuNome || meuNome === null) {
+    defineNomeUsuario();
+  } else {
+    localStorage.setItem('nome', meuNome);
+    meuCabecalho.innerHTML = 'Animais são legais, ' + meuNome;
+  }
+}
